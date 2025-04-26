@@ -5,7 +5,7 @@ Statistics and reporting microservice for the ECI-Bienestar platform. Aggregates
 ## 👥 Authors
 
 * Andrés Felipe Chavarro Plazas
-* Andrés Jacobo Sepulveda Sánchez
+* Andrés Jacobo Sepúlveda Sánchez
 * Camilo Andrés Fernández Días
 * Jesús Alfonso Pinzón Vega
 
