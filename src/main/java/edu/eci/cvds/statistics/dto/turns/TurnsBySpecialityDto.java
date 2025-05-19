@@ -1,4 +1,4 @@
-package edu.eci.cvds.statistics.dto;
+package edu.eci.cvds.statistics.dto.turns;
 
 import lombok.Data;
 
