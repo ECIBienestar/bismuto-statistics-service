@@ -4,10 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import edu.eci.cvds.statistics.dto.TurnsAvgByRolDto;
-import edu.eci.cvds.statistics.dto.TurnsAvgBySpecialityDto;
-import edu.eci.cvds.statistics.dto.TurnsByRolDto;
-import edu.eci.cvds.statistics.dto.TurnsBySpecialityDto;
+import edu.eci.cvds.statistics.dto.turns.*;
 import edu.eci.cvds.statistics.service.TurnsService;
 
 @Service
@@ -19,12 +16,12 @@ public class TurnsServiceImpl implements TurnsService {
     }
 
     @Override
-    public List<TurnsByRolDto> getTurnsByRol() {
+    public List<TurnsByRoleDto> getTurnsByRol() {
         return null;
     }
 
     @Override
-    public List<TurnsAvgByRolDto> getTurnsAvgByRol() {
+    public List<TurnsAvgByRoleDto> getTurnsAvgByRol() {
         return null;
     }
 
