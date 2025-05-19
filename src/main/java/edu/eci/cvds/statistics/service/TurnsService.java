@@ -2,10 +2,10 @@ package edu.eci.cvds.statistics.service;
 
 import java.util.List;
 
-import edu.eci.cvds.statistics.dto.TurnsAvgByRolDto;
-import edu.eci.cvds.statistics.dto.TurnsAvgBySpecialityDto;
-import edu.eci.cvds.statistics.dto.TurnsByRolDto;
-import edu.eci.cvds.statistics.dto.TurnsBySpecialityDto;
+import edu.eci.cvds.statistics.dto.turns.TurnsAvgByRolDto;
+import edu.eci.cvds.statistics.dto.turns.TurnsAvgBySpecialityDto;
+import edu.eci.cvds.statistics.dto.turns.TurnsByRolDto;
+import edu.eci.cvds.statistics.dto.turns.TurnsBySpecialityDto;
 
 public interface TurnsService {
     public List<TurnsBySpecialityDto> getTurnsBySpeciality();
