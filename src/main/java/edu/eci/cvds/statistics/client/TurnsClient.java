@@ -12,33 +12,33 @@ import edu.eci.cvds.statistics.dto.turns.TurnsAvgBySpecialityDto;
 import edu.eci.cvds.statistics.dto.turns.TurnsByRoleDto;
 import edu.eci.cvds.statistics.dto.turns.TurnsBySpecialityDto;
 
-@FeignClient(name = "stadistics-turns", url = "${stadistics.turns.url}")
+@FeignClient(name = "stadistics-turns", url = "https://diamante-medicalturns-develop-dvb8c2cqfbh4gwbg.canadacentral-01.azurewebsites.net/api")
 public interface TurnsClient {
 
     @GetMapping("reports/count-speciality")
     List<TurnsBySpecialityDto> getTurnsBySpeciality(
-            @RequestParam("speciality") String speciality,
-            @RequestParam("start") LocalDateTime start,
-            @RequestParam("end") LocalDateTime end,
-            @RequestParam("status") String status);
+            @RequestParam String speciality,
+            @RequestParam LocalDateTime start,
+            @RequestParam LocalDateTime end,
+            @RequestParam String status);
 
     @GetMapping("reports/count-role")
     List<TurnsByRoleDto> getTurnsByRole(
-            @RequestParam("speciality") String speciality,
-            @RequestParam("start") LocalDateTime start,
-            @RequestParam("end") LocalDateTime end,
-            @RequestParam("status") String status);
+            @RequestParam String speciality,
+            @RequestParam LocalDateTime start,
+            @RequestParam LocalDateTime end,
+            @RequestParam String status);
 
     @GetMapping("reports/avg-role")
     List<TurnsAvgByRoleDto> getAvgTurnsByRole(
-            @RequestParam("speciality") String speciality,
-            @RequestParam("start") LocalDateTime start,
-            @RequestParam("end") LocalDateTime end);
+            @RequestParam String speciality,
+            @RequestParam LocalDateTime start,
+            @RequestParam LocalDateTime end);
 
     @GetMapping("reports/avg-speciality")
     List<TurnsAvgBySpecialityDto> getAvgTurnsBySpeciality(
-            @RequestParam("speciality") String speciality,
-            @RequestParam("start") LocalDateTime start,
-            @RequestParam("end") LocalDateTime end);
+            @RequestParam String speciality,
+            @RequestParam LocalDateTime start,
+            @RequestParam LocalDateTime end);
 
 }
