@@ -1,18 +1,20 @@
 package edu.eci.cvds.statistics.service;
 
+import java.time.LocalDate;
 import java.util.List;
 
-import edu.eci.cvds.statistics.dto.turns.TurnsAvgByRolDto;
+import edu.eci.cvds.statistics.dto.turns.TurnsAvgByRoleDto;
 import edu.eci.cvds.statistics.dto.turns.TurnsAvgBySpecialityDto;
-import edu.eci.cvds.statistics.dto.turns.TurnsByRolDto;
+import edu.eci.cvds.statistics.dto.turns.TurnsByRoleDto;
 import edu.eci.cvds.statistics.dto.turns.TurnsBySpecialityDto;
 
 public interface TurnsService {
-    public List<TurnsBySpecialityDto> getTurnsBySpeciality();
+    public List<TurnsBySpecialityDto> getTurnsBySpeciality(String speciality, LocalDate start, LocalDate end,
+            String status);
 
-    public List<TurnsByRolDto> getTurnsByRol();
+    public List<TurnsByRoleDto> getTurnsByRol(String speciality, LocalDate start, LocalDate end, String status);
 
-    public List<TurnsAvgByRolDto> getTurnsAvgByRol();
+    public List<TurnsAvgByRoleDto> getTurnsAvgByRol(String speciality, LocalDate start, LocalDate end);
 
-    public List<TurnsAvgBySpecialityDto> getTurnsAvgBySpeciality();
+    public List<TurnsAvgBySpecialityDto> getTurnsAvgBySpeciality(String speciality, LocalDate start, LocalDate end);
 }
