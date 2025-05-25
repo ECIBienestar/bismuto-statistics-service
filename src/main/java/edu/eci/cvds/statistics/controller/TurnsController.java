@@ -9,10 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import edu.eci.cvds.statistics.dto.turns.TurnsAvgByRoleDto;
-import edu.eci.cvds.statistics.dto.turns.TurnsAvgBySpecialityDto;
-import edu.eci.cvds.statistics.dto.turns.TurnsByRoleDto;
-import edu.eci.cvds.statistics.dto.turns.TurnsBySpecialityDto;
+import edu.eci.cvds.statistics.dto.turns.*;
 import edu.eci.cvds.statistics.service.impl.TurnsServiceImpl;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
@@ -23,9 +20,9 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 @RequestMapping("/api/turns")
 public class TurnsController {
 
-    private TurnsServiceImpl turnsServiceImpl;    
+    private TurnsServiceImpl turnsServiceImpl;
 
-    public TurnsController (TurnsServiceImpl turnsServiceImpl){
+    public TurnsController(TurnsServiceImpl turnsServiceImpl) {
         this.turnsServiceImpl = turnsServiceImpl;
     }
 
@@ -37,7 +34,9 @@ public class TurnsController {
     @GetMapping("/count-role")
     public ResponseEntity<List<TurnsByRoleDto>> getTurnByRole(@RequestParam String role, @RequestParam LocalDate start,
             @RequestParam LocalDate end, @RequestParam String status) {
-        return ResponseEntity.ok();
+
+        List<TurnsByRoleDto> turns = turnsServiceImpl.getTurnsByRol(role, start, end, status);
+        return ResponseEntity.ok(turns);
     }
 
     @Operation(summary = "Get all turs by speciality")
@@ -49,7 +48,9 @@ public class TurnsController {
     public ResponseEntity<List<TurnsBySpecialityDto>> getTurnBySpeciality(@RequestParam String role,
             @RequestParam LocalDate start,
             @RequestParam LocalDate end, @RequestParam String status) {
-        return null;
+
+        List<TurnsBySpecialityDto> turns = turnsServiceImpl.getTurnsBySpeciality(role, start, end, status);
+        return ResponseEntity.ok(turns);
     }
 
     @Operation(summary = "Get average of turs by speciality")
@@ -60,18 +61,16 @@ public class TurnsController {
     @GetMapping("/avg-speciality")
     public ResponseEntity<List<TurnsAvgBySpecialityDto>> getTurnAvgBySpeciality(@RequestParam String role,
             @RequestParam LocalDate start, @RequestParam LocalDate end) {
-        return null;
+
+        List<TurnsAvgBySpecialityDto> turn = turnsServiceImpl.getTurnsAvgBySpeciality(role, start, end);
+        return ResponseEntity.ok(turn);
     }
 
-    @Operation(summary = "Get average of turs by role")
-    @ApiResponses(value = {
-            @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "200", description = "Average of turns obtained correctly"),
-            @io.swagger.v3.oas.annotations.responses.ApiResponse(responseCode = "500", description = "Internal Server Error")
-    })
     @GetMapping("/avg-role")
     public ResponseEntity<List<TurnsAvgByRoleDto>> getTurnAvgByRole(@RequestParam String role,
             @RequestParam LocalDate start, @RequestParam LocalDate end) {
-        return null;
+        List<TurnsAvgByRoleDto> turn = turnsServiceImpl.getTurnsAvgByRol(role, start, end);
+        return ResponseEntity.ok(turn);
     }
 
 }

@@ -12,18 +12,9 @@ import edu.eci.cvds.statistics.service.TurnsService;
 @Service
 public class TurnsServiceImpl implements TurnsService {
 
-    private TurnsAvgByRoleDto turnsAvgByRoleDto;
-    private TurnsAvgBySpecialityDto turnsAvgBySpecialityDto;
-    private TurnsByRoleDto turnsByRoleDto;
-    private TurnsBySpecialityDto turnsBySpecialityDto;
     private TurnsClient turnsClient;
 
-    public TurnsServiceImpl(TurnsAvgByRoleDto turnsAvgByRoleDto, TurnsAvgBySpecialityDto turnsAvgBySpecialityDto,
-            TurnsBySpecialityDto turnsBySpecialityDto, TurnsByRoleDto turnsByRoleDto, TurnsClient turnsClient) {
-        this.turnsByRoleDto = turnsByRoleDto;
-        this.turnsBySpecialityDto = turnsBySpecialityDto;
-        this.turnsAvgByRoleDto = turnsAvgByRoleDto;
-        this.turnsAvgBySpecialityDto = turnsAvgBySpecialityDto;
+    public TurnsServiceImpl(TurnsClient turnsClient) {
         this.turnsClient = turnsClient;
     }
 
@@ -40,12 +31,12 @@ public class TurnsServiceImpl implements TurnsService {
 
     @Override
     public List<TurnsAvgByRoleDto> getTurnsAvgByRol(String speciality, LocalDate start, LocalDate end) {
-        return null;
+        return turnsClient.getAvgTurnsByRole(speciality, start, end);
     }
 
     @Override
     public List<TurnsAvgBySpecialityDto> getTurnsAvgBySpeciality(String speciality, LocalDate start, LocalDate end) {
-        return null;
+        return turnsClient.getAvgTurnsBySpeciality(speciality, start, end);
     }
 
 }
